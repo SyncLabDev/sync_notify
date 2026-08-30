@@ -4,24 +4,6 @@ All notable changes to SYNC Notify are documented in this file.
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project uses [Semantic Versioning](https://semver.org/).
 
-## [Unreleased]
-
-### Added
-
-- Startup notice with `Config.Debug` enabled when ox_lib is detected, explaining that the `ox_lib:notify` takeover stays idle to avoid duplicate notifications and pointing at the `OxNotify` export.
-
-### Changed
-
-- Documentation: a dedicated "Working alongside ox_lib" README section (takeover semantics, recommended routing options, troubleshooting entry) replaces the single dense compatibility paragraph.
-
-### Fixed
-
-- The transparent NUI overlay no longer paints black on older FiveM CEF builds: the `color-scheme: dark` meta was dropped and the stylesheet declares its layer order before Tailwind, so the page background stays transparent across CEF versions.
-- FiveM CEF color compatibility: every `color-mix()` in the notification stylesheet was replaced with plain `rgba`/hex accent variants precomputed per card, so split and floating themes, borders, and the rail track render correctly in FiveM's older Chromium instead of being silently dropped.
-- The countdown rail now drains in-game: the reduced-motion stylesheet override (which freezes it into a static bar, and which FiveM CEF reports regardless of player intent) is scoped to the browser workbench, keeping the functional timing rail visible in the NUI.
-- Entry stutter in CEF: notification cards no longer animate a large blurred `drop-shadow` filter (and hover no longer rerasterizes brightness filters), leaving only transform/opacity/bleed-free paint work per frame.
-- `Config.Offset` now ships as `{ x = 24, y = 24 }` with matching stylesheet fallbacks, so top stacks sit snug against both screen edges instead of leaving the previous large inset.
-
 ## [1.1.0] - 2026-08-30
 
 ### Added
@@ -32,6 +14,7 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 - Direction-aware enter/exit motion: cards now travel along the axis of their anchor edge for all eight positions.
 - Hover feedback on the countdown rail (brightness lift while pause-on-hover is active).
 - Browser workbench previews the sound pipeline at reduced volume.
+- Startup notice with `Config.Debug` enabled when ox_lib is detected, explaining that the `ox_lib:notify` takeover stays idle to avoid duplicate notifications and pointing at the `OxNotify` export.
 
 ### Fixed
 
@@ -41,11 +24,17 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 - Omitted `sound` fields normalize to "use default" instead of `false`, which had silenced the chime entirely.
 - The countdown rail no longer jumps when pause-on-hover recomputes the remaining time mid-animation.
 - Development mode no longer shows a duplicate bootstrap notification under React StrictMode.
+- The transparent NUI overlay no longer paints black on older FiveM CEF builds: the `color-scheme: dark` meta was dropped and the stylesheet declares its layer order before Tailwind, so the page background stays transparent across CEF versions.
+- FiveM CEF color compatibility: every `color-mix()` in the notification stylesheet was replaced with plain `rgba`/hex accent variants precomputed per card, so split and floating themes, borders, and the rail track render correctly in FiveM's older Chromium instead of being silently dropped.
+- The countdown rail now drains in-game: the reduced-motion stylesheet override (which freezes it into a static bar, and which FiveM CEF reports regardless of player intent) is scoped to the browser workbench, keeping the functional timing rail visible in the NUI.
+- Entry stutter in CEF: notification cards no longer animate a large blurred `drop-shadow` filter (and hover no longer rerasterizes brightness filters), leaving only transform/opacity/bleed-free paint work per frame.
+- `Config.Offset` now ships as `{ x = 24, y = 24 }` with matching stylesheet fallbacks, so top stacks sit snug against both screen edges instead of leaving the previous large inset.
 
 ### Changed
 
 - All web dependencies are pinned to exact versions for reproducible resource builds.
 - Reinstall repair: broken partial `node_modules` no longer blocks quality scripts.
+- Documentation: a dedicated "Working alongside ox_lib" README section (takeover semantics, recommended routing options, troubleshooting entry) replaces the single dense compatibility paragraph.
 
 ### Performance
 
