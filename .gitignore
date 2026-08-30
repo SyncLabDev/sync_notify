@@ -1,0 +1,12 @@
+node_modules/
+web/node_modules/
+web/dist/
+web/test-results/
+web/playwright-report/
+web/output/playwright/
+.playwright-cli/
+.playwright-mcp/
+web/output/
+*.tsbuildinfo
+*.log
+.DS_Store
