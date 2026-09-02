@@ -243,7 +243,7 @@ For framework acceptance, test the resource independently on standalone, Qbox, Q
 
 ## License
 
-MIT © 2026 SYNC Lab.
+MIT — see [LICENSE](LICENSE).
 
 ## Changelog
 
