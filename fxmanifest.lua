@@ -6,7 +6,7 @@ name 'sync_notify'
 author 'SYNC Lab'
 description 'Compact, production-ready notification framework for FiveM'
 version '1.1.0'
-license 'MIT'
+license 'SYNC Lab Community Source License'
 
 ui_page 'web/dist/index.html'
 

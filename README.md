@@ -243,7 +243,7 @@ For framework acceptance, test the resource independently on standalone, Qbox, Q
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+SYNC Lab Community Source License — see [LICENSE.md](LICENSE.md).
 
 ## Changelog
 
